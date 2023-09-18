@@ -1,14 +1,19 @@
 package co.uniquindio.edu.co.servicios;
 
+import co.uniquindio.edu.co.DTO.AtencionMedicoDTO;
+import co.uniquindio.edu.co.DTO.CitaMedicoTDO;
+import co.uniquindio.edu.co.DTO.DiaLibreTDO;
+import java.util.List;
+
 public interface MedicoServicio {
 
-    void listarCitasPendientes();
+    List<CitaMedicoTDO> listarCitasPendientes(int codigo) throws Exception;
 
-    void atenderCita();
+    void atenderCita(AtencionMedicoDTO atencionMedicoDTO) throws Exception;
 
-    void listarCitaPaciente();  //Historial Medico
+    List<CitaMedicoTDO> listarCitaPaciente(int codigoPaciente) throws Exception;  //Historial Medico
 
-    void agendarDiaLibre();
+    void agendarDiaLibre(DiaLibreTDO diaLibreTDO) throws Exception;
 
-    void listarCitasRealizadasMedico();
+    List<CitaMedicoTDO> listarCitasRealizadasMedico(int codigo) throws Exception;
 }

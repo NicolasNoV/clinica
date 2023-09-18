@@ -1,6 +1,8 @@
 package co.uniquindio.edu.co.servicios;
 
+import co.uniquindio.edu.co.DTO.EmailDTO;
+
 public interface EmailServicio {
 
-    void enviarCorreo();
+    String enviarCorreo(EmailDTO emailDTO) throws Exception;
 }

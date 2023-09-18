@@ -5,18 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dceb39c1-78d7-4725-a5f9-81b911f8135d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Administrador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Cuenta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/AdministradorServicio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/AutenticacionServicio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/EmailServicio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/ImagenesServicio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/MedicoServicio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/PacienteServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/AtencionMedicoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/CitaMedicoTDO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/CitasAdminDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/DetalleMedicoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/DetallePQRSDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/DiaLibreTDO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/EmailDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/HorarioDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/InfoMedicoAdminDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/MedicoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/PQRSAdminDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/RespuestaPQRSDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Atencion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Cita.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/DiaLibre.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/enums/EstadoCita.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/enums/EstadoPQRS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/AdministradorServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/AdministradorServicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/EmailServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/EmailServicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/MedicoServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/MedicoServicio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +40,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,25 +59,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "spring.configuration.checksum": "ec90ff4d0d47115e83a76abc778ec23e",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;ec90ff4d0d47115e83a76abc778ec23e&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ClinicaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="clinicaP.main" />
@@ -96,7 +107,8 @@
       <option name="presentableId" value="Default" />
       <updated>1694099559386</updated>
       <workItem from="1694099560402" duration="1579000" />
-      <workItem from="1694700663953" duration="4149000" />
+      <workItem from="1694700663953" duration="4490000" />
+      <workItem from="1695046669938" duration="5704000" />
     </task>
     <servers />
   </component>
