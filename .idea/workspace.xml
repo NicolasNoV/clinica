@@ -5,27 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dceb39c1-78d7-4725-a5f9-81b911f8135d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/AtencionMedicoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/CitaMedicoTDO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/CitasAdminDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/DetalleMedicoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/DetallePQRSDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/DiaLibreTDO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/EmailDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/HorarioDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/InfoMedicoAdminDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/MedicoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/PQRSAdminDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/RespuestaPQRSDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Atencion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Cita.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/DiaLibre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/enums/EstadoCita.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/enums/EstadoPQRS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Horario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Medico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Mensaje.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/PQRS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Paciente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/enums/Ciudad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/enums/EPS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/enums/Especialidad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/enums/Tipo_Sangre.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/repositorio/MedicoRepositorio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/implementacion/AdministradorServicioImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/MedicoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/MedicoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Administrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Administrador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Atencion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Atencion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Cita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Cita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/DiaLibre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/DiaLibre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/AdministradorServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/AdministradorServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/EmailServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/EmailServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/MedicoServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/MedicoServicio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +38,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Record" />
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -108,7 +106,12 @@
       <updated>1694099559386</updated>
       <workItem from="1694099560402" duration="1579000" />
       <workItem from="1694700663953" duration="4490000" />
-      <workItem from="1695046669938" duration="5704000" />
+      <workItem from="1695046669938" duration="5914000" />
+      <workItem from="1695305135015" duration="2395000" />
+      <workItem from="1695651056036" duration="6468000" />
+      <workItem from="1695909968057" duration="653000" />
+      <workItem from="1696256043322" duration="607000" />
+      <workItem from="1696965307643" duration="3268000" />
     </task>
     <servers />
   </component>

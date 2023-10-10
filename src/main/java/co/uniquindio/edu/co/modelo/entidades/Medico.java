@@ -1,25 +1,24 @@
 package co.uniquindio.edu.co.modelo.entidades;
 
+import co.uniquindio.edu.co.modelo.enums.Especialidad;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DiaLibre {
+public class Medico extends Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private int codigo;
 
-    @Column(nullable = false)
-    private String dia;
-
     @ManyToOne
-    @JoinColumn(name = "medico_codigo")
-    private Medico medico;
+    @JoinColumn(name = "especialidad_codigo")
+    private Especialidad especialidad;
 }

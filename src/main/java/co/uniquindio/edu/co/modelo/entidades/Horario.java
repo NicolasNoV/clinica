@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DiaLibre {
+public class Horario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,13 @@ public class DiaLibre {
     private int codigo;
 
     @Column(nullable = false)
-    private String dia;
+    private LocalDateTime dia;
+
+    @Column(nullable = false)
+    private LocalDateTime hora_Inicio;
+
+    @Column(nullable = false)
+    private LocalDateTime hora_Fin;
 
     @ManyToOne
     @JoinColumn(name = "medico_codigo")

@@ -1,5 +1,5 @@
 package co.uniquindio.edu.co.modelo.enums;
 
-public enum EstadoCita {
-    ACTIVO, INACTIVO
+public enum EPS {
+    SANITAS, NUEVAEPS
 }
