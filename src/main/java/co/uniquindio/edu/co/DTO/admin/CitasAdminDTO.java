@@ -1,4 +1,4 @@
-package co.uniquindio.edu.co.DTO;
+package co.uniquindio.edu.co.DTO.admin;
 
 import co.uniquindio.edu.co.modelo.enums.EstadoCita;
 

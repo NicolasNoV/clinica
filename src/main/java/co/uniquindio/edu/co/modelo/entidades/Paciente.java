@@ -26,12 +26,10 @@ public class Paciente extends Usuario implements Serializable {
     @Column(nullable = false)
     private String alergias;
 
-    @ManyToOne
-    @JoinColumn(name = "eps_codigo")
+    @Enumerated(EnumType.STRING)
     private EPS eps;
 
-    @ManyToOne
-    @JoinColumn(name = "tipo_Sangre_codigo")
+    @Enumerated(EnumType.STRING)
     private Tipo_Sangre tipo_Sangre;
 
 }

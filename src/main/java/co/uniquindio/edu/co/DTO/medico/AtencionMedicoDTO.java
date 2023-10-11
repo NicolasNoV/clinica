@@ -1,4 +1,4 @@
-package co.uniquindio.edu.co.DTO;
+package co.uniquindio.edu.co.DTO.medico;
 
 public record AtencionMedicoDTO(
         String diagnostico,

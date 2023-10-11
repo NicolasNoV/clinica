@@ -1,4 +1,4 @@
-package co.uniquindio.edu.co.servicios;
+package co.uniquindio.edu.co.servicios.interfaces;
 
 public interface ImagenesServicio {
 

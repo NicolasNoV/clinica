@@ -1,6 +1,7 @@
 package co.uniquindio.edu.co.modelo.entidades;
 
 import co.uniquindio.edu.co.modelo.enums.EstadoPQRS;
+import co.uniquindio.edu.co.modelo.enums.TipoPQRS;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PQRS {
+public class Pqrs {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +19,10 @@ public class PQRS {
     private int codigo;
 
     @Column(nullable = false)
-    private LocalDateTime fecha_Creacion;
+    private LocalDateTime fechaCreacion;
 
-    @Column(nullable = false)
-    private String tipo;
+    @Enumerated(EnumType.STRING)
+    private TipoPQRS tipo;
 
     @Column(nullable = false)
     private String motivo;
@@ -30,8 +31,8 @@ public class PQRS {
     @JoinColumn(name = "cita_codigo")
     private Cita cita;
 
-    @ManyToOne
-    @JoinColumn(name = "estado_codigo")
-    private EstadoPQRS estadoPQRS;
+    @Enumerated(EnumType.STRING)
+    private EstadoPQRS estado;
+
 
 }

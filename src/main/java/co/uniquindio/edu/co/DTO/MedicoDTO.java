@@ -1,5 +1,6 @@
 package co.uniquindio.edu.co.DTO;
 
+import co.uniquindio.edu.co.DTO.admin.HorarioDTO;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -25,7 +26,8 @@ public record MedicoDTO (
     String especialidad,
     @NotNull
     String url_Foto,
-    List<HorarioDTO> horarioDTO
+   @NotNull
+    List<HorarioDTO> horarios
 ){
 
 }

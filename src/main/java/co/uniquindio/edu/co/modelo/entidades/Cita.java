@@ -34,7 +34,6 @@ public class Cita {
     @JoinColumn(name = "medico_codigo")
     private Medico medico;
 
-    @ManyToOne
-    @JoinColumn(name = "estado_codigo")
-    private EstadoCita estadoCita;
+    @Enumerated(EnumType.STRING)
+    private EstadoCita estado;
 }

@@ -1,8 +1,8 @@
-package co.uniquindio.edu.co.DTO;
+package co.uniquindio.edu.co.DTO.medico;
 
 import java.time.LocalDateTime;
 
-public record CitaMedicoTDO(
+public record CitaMedicoDTO(
         LocalDateTime fechaCreacion,
         LocalDateTime fechaCita,
         String motivo,

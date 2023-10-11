@@ -3,13 +3,14 @@ package co.uniquindio.edu.co.modelo.entidades;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Mensaje {
+public class Mensaje implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,14 +18,14 @@ public class Mensaje {
     private int codigo;
 
     @Column(nullable = false)
-    private LocalDateTime fecha_Creacion;
+    private LocalDateTime fecha;
 
     @Column(nullable = false)
-    private String mensaje;
+    private String contenido;
 
     @ManyToOne
     @JoinColumn(name = "pqrs_codigo")
-    private PQRS pqrs;
+    private Pqrs pqrs;
 
     @ManyToOne
     @JoinColumn(name = "cuenta_codigo")
@@ -32,6 +33,6 @@ public class Mensaje {
 
     @OneToOne
     @JoinColumn(name = "mensaje_codigo")
-    private int codigoMensaje;
+    private Mensaje codigoMensaje;
 
 }
