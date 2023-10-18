@@ -1,5 +1,7 @@
 package co.uniquindio.edu.co.DTO.medico;
 
+import co.uniquindio.edu.co.modelo.enums.EstadoCita;
+
 import java.time.LocalDateTime;
 
 public record CitaMedicoDTO(
@@ -7,7 +9,7 @@ public record CitaMedicoDTO(
         LocalDateTime fechaCita,
         String motivo,
         String cedulaPaciente,
-        String codigoMedico,
-        String codigoEstado
+        int codigoMedico,
+        EstadoCita estado
 ) {
 }

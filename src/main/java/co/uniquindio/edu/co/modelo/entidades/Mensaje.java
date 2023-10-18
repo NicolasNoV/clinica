@@ -1,6 +1,8 @@
 package co.uniquindio.edu.co.modelo.entidades;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.io.Serializable;
@@ -17,20 +19,25 @@ public class Mensaje implements Serializable {
     @EqualsAndHashCode.Include
     private int codigo;
 
+    @NotNull
     @Column(nullable = false)
     private LocalDateTime fecha;
 
+    @NotBlank
     @Column(nullable = false)
     private String contenido;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "pqrs_codigo")
     private Pqrs pqrs;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "cuenta_codigo")
     private Cuenta cuenta;
 
+    @NotNull
     @OneToOne
     @JoinColumn(name = "mensaje_codigo")
     private Mensaje codigoMensaje;

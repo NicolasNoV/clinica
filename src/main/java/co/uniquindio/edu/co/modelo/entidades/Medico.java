@@ -10,7 +10,6 @@ import lombok.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 @Entity
 @Getter
 @Setter
@@ -18,18 +17,10 @@ import java.util.List;
 @AllArgsConstructor
 public class Medico extends Usuario implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    private int codigo;
-
-    @Column(nullable = false)
-    private String urlFoto;
-
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Especialidad especialidad;
 
-    @NotNull
     @OneToMany
     private List<HorarioMedico> horario;
 }

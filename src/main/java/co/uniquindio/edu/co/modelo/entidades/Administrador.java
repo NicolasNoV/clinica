@@ -15,7 +15,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Administrador extends Cuenta implements Serializable {
 
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private int codigo;

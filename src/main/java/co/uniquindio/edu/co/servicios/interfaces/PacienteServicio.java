@@ -26,15 +26,15 @@ public interface PacienteServicio {
 
     void crearPQRS(CrearPQRSDTO crearPQRSDTO) throws Exception;
 
-    List<ItemPQRSDTO> listarPQRS() throws Exception;
+    List<ItemPQRSDTO> listarPQRS(int codigoCliente) throws Exception;
 
     int responderPQRS(RegistroRespuestaDTO registroRespuestaDTO) throws Exception;
 
-    List<ItemCitaPacienteDTO> listarCitasPaciente();
+    List<ItemCitaPacienteDTO> listarCitasPaciente(int codigoPaciente) throws Exception;
 
-    List<ItemCitaPacienteDTO> filtrarCitasPorFecha(LocalDateTime fecha);
+    List<ItemCitaPacienteDTO> filtrarCitasPorFecha(LocalDateTime fecha) throws Exception;
 
-    List<ItemCitaPacienteDTO> filtrarCitasPorMedico(int CodigoMedico);
+    List<ItemCitaPacienteDTO> filtrarCitasPorMedico(int codigoMedico) throws Exception;
 
-    AtencionMedicoDTO verDetalleCita(int codigoCita);
+    AtencionMedicoDTO verDetalleCita(int codigoCita) throws Exception;
 }

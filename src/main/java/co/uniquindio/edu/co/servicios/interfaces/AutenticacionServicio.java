@@ -1,6 +1,8 @@
 package co.uniquindio.edu.co.servicios.interfaces;
 
-public interface AutenticacionServicio {
+import co.uniquindio.edu.co.DTO.LoginDTO;
+import co.uniquindio.edu.co.DTO.TokenDTO;
 
-    void login();
+public interface AutenticacionServicio {
+    TokenDTO login(LoginDTO loginDTO) throws Exception;
 }

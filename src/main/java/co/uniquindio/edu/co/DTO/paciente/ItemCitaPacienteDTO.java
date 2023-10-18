@@ -18,7 +18,7 @@ public record ItemCitaPacienteDTO(
     String motivo,
 
     @NotNull
-    InfoMedicoPacienteDTO infoMedicoPacienteDTO,
+    MedicoCitasPacienteDTO medicoCitasPacienteDTO,
 
     @NotNull
     EstadoCita estadoCita

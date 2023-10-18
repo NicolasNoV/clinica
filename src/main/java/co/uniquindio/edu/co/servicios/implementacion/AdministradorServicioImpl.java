@@ -8,7 +8,9 @@ import co.uniquindio.edu.co.modelo.enums.EstadoUsuario;
 import co.uniquindio.edu.co.repositorio.*;
 import co.uniquindio.edu.co.servicios.interfaces.AdministradorServicio;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-
+@Transactional
 public class AdministradorServicioImpl implements AdministradorServicio {
 
     private final MedicoRepo medicoRepo;
@@ -45,8 +47,12 @@ public class AdministradorServicioImpl implements AdministradorServicio {
         medico.setEspecialidad( medicoDTO.especialidad() );
         medico.setCiudad(medicoDTO.ciudad());
         medico.setCorreo(medicoDTO.correo() );
-        medico.setPassword(medicoDTO.password());
-        medico.setUrlFoto(medicoDTO.urlFoto());
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String passwordEncriptada = passwordEncoder.encode(medicoDTO.password());
+
+        medico.setPassword(passwordEncriptada);
+        medico.setUrl_foto(medicoDTO.urlFoto());
         medico.setEstado(EstadoUsuario.ACTIVO);
 
         Medico medicoNuevo = medicoRepo.save(medico);
@@ -98,7 +104,7 @@ public class AdministradorServicioImpl implements AdministradorServicio {
         buscado.setEspecialidad( medicoDTO.especialidad() );
         buscado.setCiudad(medicoDTO.ciudad());
         buscado.setCorreo(medicoDTO.correo() );
-        buscado.setUrlFoto(medicoDTO.urlFoto());
+        buscado.setUrl_foto(medicoDTO.urlFoto());
 
         medicoRepo.save( buscado );
 
@@ -138,7 +144,7 @@ public class AdministradorServicioImpl implements AdministradorServicio {
                     m.getCodigo(),
                     m.getCedula(),
                     m.getNombre(),
-                    m.getUrlFoto(),
+                    m.getUrl_foto(),
                     m.getEspecialidad()) );
         }
 
@@ -175,7 +181,7 @@ public class AdministradorServicioImpl implements AdministradorServicio {
                 buscado.getEspecialidad(),
                 buscado.getTelefono(),
                 buscado.getCorreo(),
-                buscado.getUrlFoto(),
+                buscado.getUrl_foto(),
                 horariosDTO
         );
 
