@@ -14,17 +14,17 @@ public interface PacienteServicio {
 
     int editarPerfil(DetallePacienteDTO detallePacienteDTO) throws Exception;
 
-    void eliminarCuenta(int codigo) throws Exception;
+    boolean eliminarCuenta(int codigo) throws Exception;
 
-    void enviarLinkRecuperacion();
+    boolean enviarLinkRecuperacion(String correo) throws Exception;
 
-    void cambiarPassword(NuevaPasswordDTO nuevaPasswordDTO) throws Exception;
+    boolean cambiarPassword(NuevaPasswordDTO nuevaPasswordDTO) throws Exception;
 
-    void agendarCitas(AgendarCitaDTO agendarCitaDTO) throws Exception;
+    boolean agendarCitas(AgendarCitaDTO agendarCitaDTO) throws Exception;
 
     List<InfoMedicoPacienteDTO> listarMedicosEspecialidad (String especialidad) throws Exception;
 
-    void crearPQRS(CrearPQRSDTO crearPQRSDTO) throws Exception;
+    boolean crearPQRS(CrearPQRSDTO crearPQRSDTO) throws Exception;
 
     List<ItemPQRSDTO> listarPQRS(int codigoCliente) throws Exception;
 

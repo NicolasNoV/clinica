@@ -9,7 +9,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public record RegistroPacienteDTO(
+import java.time.LocalDateTime;
+
+public record  RegistroPacienteDTO(
     @NotBlank
     @Length(max = 200)
     String nombre,
@@ -34,6 +36,9 @@ public record RegistroPacienteDTO(
     @NotBlank
     String alergias,
     @NotNull
-    EPS eps
+    EPS eps,
+
+    @NotNull
+    LocalDateTime fecha_Nacimiento
 ){
 }

@@ -17,7 +17,7 @@ public record AgendarCitaDTO(
        @NotBlank
        String motivo,
        @NotNull
-       Medico medico,
+       int codigoMedico,
        @NotNull
        int codigoPaciente
 ) {

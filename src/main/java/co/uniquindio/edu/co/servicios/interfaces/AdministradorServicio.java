@@ -15,7 +15,7 @@ public interface AdministradorServicio {
 
     int actualizarMedico(DetalleMedicoDTO medicoDTO) throws Exception;
 
-    void eliminarMedico(int codigo) throws Exception;
+    boolean eliminarMedico(int codigo) throws Exception;
 
     List<ItemMedicoDTO> listarMedicos() throws Exception;
 
@@ -27,7 +27,7 @@ public interface AdministradorServicio {
 
     int responderPQRS(RegistroRespuestaDTO registroRespuestaDTO) throws Exception;
 
-    void cambiarEstadoPQRS(int codigoPQRS, EstadoPQRS estadoPQRS) throws Exception;
+    boolean cambiarEstadoPQRS(int codigoPQRS, EstadoPQRS estadoPQRS) throws Exception;
 
     List<ItemCitaAdminDTO> listarCitas() throws Exception;
 

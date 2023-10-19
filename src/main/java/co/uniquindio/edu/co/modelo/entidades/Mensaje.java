@@ -37,7 +37,7 @@ public class Mensaje implements Serializable {
     @JoinColumn(name = "cuenta_codigo")
     private Cuenta cuenta;
 
-    @NotNull
+
     @OneToOne
     @JoinColumn(name = "mensaje_codigo")
     private Mensaje codigoMensaje;

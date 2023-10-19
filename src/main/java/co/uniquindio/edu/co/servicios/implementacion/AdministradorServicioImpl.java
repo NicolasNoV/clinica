@@ -112,20 +112,20 @@ public class AdministradorServicioImpl implements AdministradorServicio {
     }
 
     @Override
-    public void eliminarMedico(int codigo) throws Exception {
-
+    public boolean eliminarMedico(int codigo) throws Exception {
+        boolean respuesta = false;
         Optional<Medico> opcional =medicoRepo.findById(codigo);
 
         if( opcional.isEmpty() ){
             throw new Exception("No existe un médico con el código "+codigo);
+        }else{
+            respuesta = true;
         }
 
         Medico buscado = opcional.get();
         buscado.setEstado(EstadoUsuario.INACTIVO);
         medicoRepo.save( buscado );
-
-        //medicoRepo.delete(buscado);
-
+        return respuesta;
     }
 
     @Override
@@ -268,18 +268,21 @@ public class AdministradorServicioImpl implements AdministradorServicio {
     }
 
     @Override
-    public void cambiarEstadoPQRS(int codigoPQRS, EstadoPQRS estadoPQRS) throws Exception {
-
+    public boolean cambiarEstadoPQRS(int codigoPQRS, EstadoPQRS estadoPQRS) throws Exception {
+        boolean respuesta = false;
         Optional<Pqrs> opcional = pqrsRepo.findById(codigoPQRS);
 
         if( opcional.isEmpty() ){
             throw new Exception("No existe un PQRS con el código "+codigoPQRS);
+        }else{
+            respuesta = true;
         }
 
         Pqrs pqrs = opcional.get();
         pqrs.setEstado( estadoPQRS );
 
         pqrsRepo.save( pqrs );
+        return respuesta;
     }
 
     @Override

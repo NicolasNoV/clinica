@@ -5,16 +5,18 @@ import co.uniquindio.edu.co.DTO.RegistroRespuestaDTO;
 import co.uniquindio.edu.co.DTO.admin.HorarioDTO;
 import co.uniquindio.edu.co.DTO.medico.AtencionMedicoDTO;
 import co.uniquindio.edu.co.DTO.paciente.*;
+import co.uniquindio.edu.co.DTO.serviciosExternos.EmailDTO;
 import co.uniquindio.edu.co.modelo.entidades.*;
 import co.uniquindio.edu.co.modelo.enums.*;
 import co.uniquindio.edu.co.repositorio.*;
+import co.uniquindio.edu.co.servicios.interfaces.EmailServicio;
 import co.uniquindio.edu.co.servicios.interfaces.PacienteServicio;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,10 @@ public class PacienteServicioImpl implements PacienteServicio {
     private final HorarioRepo horarioRepo;
     private final PacienteRepo pacienteRepo;
     private final AtencionRepo atencionRepo;
+
+    @Autowired
+    private EmailServicio emailServicio;
+
     @Override
     public int registrarse(RegistroPacienteDTO registroPacienteDTO) throws Exception {
         if( estaRepetidaCedula(registroPacienteDTO.cedula()) ){
@@ -59,6 +65,7 @@ public class PacienteServicioImpl implements PacienteServicio {
         paciente.setEstado(EstadoUsuario.ACTIVO);
         paciente.setTipo_Sangre(registroPacienteDTO.tipoSangre());
         paciente.setEps(registroPacienteDTO.eps());
+        paciente.setFecha_Nacimiento(registroPacienteDTO.fecha_Nacimiento());
 
         Paciente pacienteNuevo = pacienteRepo.save(paciente);
 
@@ -98,28 +105,52 @@ public class PacienteServicioImpl implements PacienteServicio {
     }
 
     @Override
-    public void eliminarCuenta(int codigo) throws Exception {
+    public boolean eliminarCuenta(int codigo) throws Exception {
+        boolean respuesta = false;
         Optional<Paciente> opcional =pacienteRepo.findById(codigo);
 
         if( opcional.isEmpty() ){
             throw new Exception("No existe un paciente con el código "+codigo);
+        }else{
+            respuesta = true;
         }
 
         Paciente buscado = opcional.get();
         buscado.setEstado(EstadoUsuario.INACTIVO);
         pacienteRepo.save( buscado );
+        return respuesta;
     }
 
     @Override
-    public void enviarLinkRecuperacion() {
+    public boolean enviarLinkRecuperacion(String correo) throws Exception {
+        boolean respuesta = false;
 
+        Optional<Paciente> paciente = Optional.ofNullable(pacienteRepo.findByCorreo(correo));
+        if(paciente.isEmpty()){
+            throw new Exception("No existe un paciente con ese correo");
+        }else{
+            respuesta = true;
+        }
+
+        EmailDTO email = new EmailDTO(
+                "Recuperacion contraseña",
+                "Descripcion de la forma para recuperar la contraseña",
+                correo
+        );
+
+        emailServicio.enviarEmail(email);
+        return respuesta;
     }
 
     @Override
-    public void cambiarPassword(NuevaPasswordDTO nuevaPasswordDTO) throws Exception {
-    Optional<Paciente> opcional = Optional.ofNullable(pacienteRepo.findByCorreo(nuevaPasswordDTO.correo()));
+    public boolean cambiarPassword(NuevaPasswordDTO nuevaPasswordDTO) throws Exception {
+        boolean respuesta = false;
+
+        Optional<Paciente> opcional = Optional.ofNullable(pacienteRepo.findByCorreo(nuevaPasswordDTO.correo()));
     if(opcional.isEmpty()){
         throw new Exception("No existe una cuenta con el correo: " +nuevaPasswordDTO.correo());
+    }else{
+        respuesta = true;
     }
     Paciente buscado = opcional.get();
 
@@ -129,30 +160,36 @@ public class PacienteServicioImpl implements PacienteServicio {
     buscado.setPassword(passwordEncriptada);
     pacienteRepo.save(buscado);
 
+    return respuesta;
     }
 
     @Override
-    public void agendarCitas(AgendarCitaDTO agendarCitaDTO) throws Exception {
+    public boolean agendarCitas(AgendarCitaDTO agendarCitaDTO) throws Exception {
+        boolean respuesta = false;
         List<ItemCitaPacienteDTO> listaCitasPacientes = listarCitasPaciente(agendarCitaDTO.codigoPaciente());
         Optional<Paciente>  paciente = pacienteRepo.findById(agendarCitaDTO.codigoPaciente());
+        Optional<Medico>  medico = medicoRepo.findById(agendarCitaDTO.codigoMedico());
         int contador = 0;
         for(ItemCitaPacienteDTO cita : listaCitasPacientes){
             if(cita.estadoCita().equals(EstadoCita.PROGRAMADA)){
                 contador++;
                 if(contador>3){
                     throw new Exception("Solo puede tener 3 citas programadas al mismo tiempo");
-                }else{
-                    Cita citaNueva = new Cita();
-                    citaNueva.setFechaCreacion(LocalDateTime.now());
-                    citaNueva.setFechaCita(agendarCitaDTO.fechaCita());
-                    citaNueva.setMotivo(agendarCitaDTO.motivo());
-                    citaNueva.setPaciente(paciente.get());
-                    citaNueva.setMedico(agendarCitaDTO.medico());
-                    citaNueva.setEstado(EstadoCita.PROGRAMADA);
-                    citaRepo.save(citaNueva);
                 }
             }
         }
+        Cita citaNueva = new Cita();
+        citaNueva.setFechaCreacion(LocalDateTime.now());
+        citaNueva.setFechaCita(agendarCitaDTO.fechaCita());
+        citaNueva.setMotivo(agendarCitaDTO.motivo());
+        citaNueva.setPaciente(paciente.get());
+        citaNueva.setMedico(medico.get());
+        citaNueva.setEstado(EstadoCita.PROGRAMADA);
+        citaNueva.setPaciente(paciente.get());
+        citaRepo.save(citaNueva);
+        respuesta = true;
+
+        return respuesta;
     }
 
     @Override
@@ -171,11 +208,12 @@ public class PacienteServicioImpl implements PacienteServicio {
                         listaHorarioDTO.add(new HorarioDTO(horarioMedico.getDia(),
                                                             horarioMedico.getHoraInicio(),
                                                             horarioMedico.getHoraFin()));
-                        listaMedicoEspecialidad.add(new InfoMedicoPacienteDTO(medico.getNombre(),
-                                                    medico.getEspecialidad(),
-                                                    listaHorarioDTO));
+
                     }
                 }
+                listaMedicoEspecialidad.add(new InfoMedicoPacienteDTO(medico.getNombre(),
+                        medico.getEspecialidad(),
+                        listaHorarioDTO));
             }else{
                 throw new Exception("No hay médicos con la especialidad:" + especialidad);
             }
@@ -186,29 +224,39 @@ return listaMedicoEspecialidad;
     }
 
     @Override
-    public void crearPQRS(CrearPQRSDTO crearPQRSDTO) throws Exception {
+    public boolean crearPQRS(CrearPQRSDTO crearPQRSDTO) throws Exception {
+        boolean respuesta = false;
         int contador = 0;
         Optional<Cita> opcional = citaRepo.findById(Integer.valueOf(crearPQRSDTO.codigoCita()));
         List<Pqrs> listaPqrs = pqrsRepo.findAll();
         for (Pqrs pqrsActivas : listaPqrs) {
-            if (pqrsActivas.getEstado().equals(EstadoPQRS.EN_PROCESO)) {
+            if (pqrsActivas.getEstado().equals(EstadoPQRS.NUEVO)||pqrsActivas.getEstado().equals(EstadoPQRS.EN_PROCESO)) {
                 if (pqrsActivas.getCita().getPaciente().getCodigo() == opcional.get().getPaciente().getCodigo()) {
                     contador++;
                 }
-                if (contador < 3) {
-                    Pqrs pqrs = new Pqrs();
-                    pqrs.setEstado(EstadoPQRS.NUEVO);
-                    pqrs.setTipo(TipoPQRS.valueOf(crearPQRSDTO.tipo()));
-                    pqrs.setCita(opcional.get());
-                    pqrs.setMotivo(crearPQRSDTO.motivo());
-                    pqrs.setFechaCreacion(LocalDateTime.now());
-                    pqrsRepo.save(pqrs);
-                } else {
+                if (contador > 3) {
                     throw new Exception("Solo puede tener 3 PQRS activas");
+                }
                 }
             }
 
-        }
+        Pqrs pqrs = new Pqrs();
+        pqrs.setEstado(EstadoPQRS.NUEVO);
+        pqrs.setTipo(TipoPQRS.valueOf(crearPQRSDTO.tipo()));
+        pqrs.setCita(opcional.get());
+        pqrs.setMotivo(crearPQRSDTO.motivo());
+        pqrs.setFechaCreacion(LocalDateTime.now());
+        pqrsRepo.save(pqrs);
+        Mensaje mensaje = new Mensaje();
+        mensaje.setPqrs(pqrs);
+        mensaje.setFecha(pqrs.getFechaCreacion());
+        Optional <Cuenta> cuentaOptional = cuentaRepo.findById(opcional.get().getPaciente().getCodigo());
+        mensaje.setCuenta(cuentaOptional.get());
+        mensaje.setContenido(pqrs.getMotivo());
+        mensajeRepo.save(mensaje);
+        respuesta = true;
+
+        return respuesta;
     }
 
     @Override
@@ -239,11 +287,13 @@ return listaMedicoEspecialidad;
             throw new Exception("No existe una cuenta con el código "+registroRespuestaDTO.codigoCuenta());
         }
 
+        Optional<Mensaje> mensajeOptional = mensajeRepo.findById(registroRespuestaDTO.codigoMensaje());
         Mensaje mensajeNuevo = new Mensaje();
         mensajeNuevo.setPqrs(opcionalPQRS.get());
         mensajeNuevo.setFecha( LocalDateTime.now() );
         mensajeNuevo.setCuenta(opcionalCuenta.get());
         mensajeNuevo.setContenido(registroRespuestaDTO.mensaje() );
+        mensajeNuevo.setCodigoMensaje(mensajeOptional.get());
 
         Mensaje respuesta = mensajeRepo.save(mensajeNuevo);
 

@@ -84,19 +84,21 @@ public class MedicoServicioImpl implements MedicoServicio {
     }
 
     @Override
-    public void agendarDiaLibre(DiaLibreDTO diaLibreDTO) throws Exception {
+    public boolean agendarDiaLibre(DiaLibreDTO diaLibreDTO) throws Exception {
+        boolean respuesta = false;
         List<CitaMedicoDTO> listarCitasMedico = listarCitasPendientes(diaLibreDTO.codigoMedico());
         for(CitaMedicoDTO cita : listarCitasMedico){
             if(cita.fechaCita() == diaLibreDTO.dia()){
                 throw new Exception("En el dia que intenta agendar libre tiene citas pendiente");
-            }else{
-                DiaLibre diaLibre = new DiaLibre();
-                diaLibre.setDia(diaLibreDTO.dia());
-                Optional<Medico> medico = medicoRepo.findById(cita.codigoMedico());
-                diaLibre.setMedico(medico.get());
-                diaLibreRepo.save(diaLibre);
             }
         }
+            DiaLibre diaLibre = new DiaLibre();
+            diaLibre.setDia(diaLibreDTO.dia());
+            Optional<Medico> medico = medicoRepo.findById(diaLibreDTO.codigoMedico());
+            diaLibre.setMedico(medico.get());
+            diaLibreRepo.save(diaLibre);
+            respuesta = true;
+        return respuesta;
     }
 
     @Override
