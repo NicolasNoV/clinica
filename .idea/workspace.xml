@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dceb39c1-78d7-4725-a5f9-81b911f8135d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/co/uniquindio/edu/co/clinica/test/MedicoServicioTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/co/uniquindio/edu/co/clinica/test/PacienteServicioTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/paciente/AgendarCitaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/paciente/AgendarCitaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/paciente/RegistroPacienteDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/DTO/paciente/RegistroPacienteDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Mensaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/entidades/Mensaje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/enums/Especialidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/modelo/enums/Especialidad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/implementacion/AdministradorServicioImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/implementacion/AdministradorServicioImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/implementacion/MedicoServicioImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/implementacion/MedicoServicioImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/implementacion/PacienteServicioImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/implementacion/PacienteServicioImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/interfaces/AdministradorServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/interfaces/AdministradorServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/interfaces/MedicoServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/interfaces/MedicoServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/interfaces/PacienteServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/uniquindio/edu/co/servicios/interfaces/PacienteServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/co/uniquindio/edu/co/clinica/test/AdministradorServicioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/uniquindio/edu/co/clinica/test/AdministradorServicioTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/co/uniquindio/edu/co/clinica/test/MedicoServicioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/uniquindio/edu/co/clinica/test/MedicoServicioTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +192,7 @@
       <workItem from="1697578203020" duration="863000" />
       <workItem from="1697637082623" duration="2028000" />
       <workItem from="1697639132240" duration="13303000" />
-      <workItem from="1697662749614" duration="17116000" />
+      <workItem from="1697662749614" duration="17526000" />
     </task>
     <servers />
   </component>

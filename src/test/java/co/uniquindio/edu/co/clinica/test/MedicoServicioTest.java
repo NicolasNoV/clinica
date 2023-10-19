@@ -41,7 +41,6 @@ public class MedicoServicioTest {
         Assertions.assertEquals(1, listarCitaPaciente.size());
     }
 
-
     public void agendarDiaLibreTest() throws Exception{
         DiaLibreDTO diaLibreDTO = new DiaLibreDTO(LocalDateTime.of(2023, 10,20,0,0), 9);
         boolean respuesta = medicoServicio.agendarDiaLibre(diaLibreDTO);
