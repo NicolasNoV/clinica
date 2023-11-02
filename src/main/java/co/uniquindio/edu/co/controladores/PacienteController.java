@@ -26,7 +26,7 @@ public class PacienteController {
         pacienteServicio.editarPerfil(detallePacienteDTO);
         return ResponseEntity.ok().body( new MensajeDTO<>(false, "Paciente actualizado correctamete") );
     }
-    @DeleteMapping("/eliminar/{codigo}")
+    @DeleteMapping("/eliminar-cuenta/{codigo}")
     public ResponseEntity<MensajeDTO<String>> eliminarCuenta(@PathVariable int codigo) throws Exception{
         pacienteServicio.eliminarCuenta(codigo);
         return ResponseEntity.ok().body( new MensajeDTO<>(false, "Paciente eliminado correctamete"));
@@ -59,7 +59,7 @@ public class PacienteController {
     public ResponseEntity<MensajeDTO<List<ItemPQRSDTO>>> listarPQRS(@PathVariable int codigoCliente) throws Exception{
         return ResponseEntity.ok().body( new MensajeDTO<>(false, pacienteServicio.listarPQRS(codigoCliente)) );
     }
-    @PutMapping("/responder-pqrs")
+    @PutMapping("/responder-pqrs-paciente")
     public ResponseEntity<MensajeDTO<String>> responderPQRS(@Valid @RequestBody RegistroRespuestaDTO registroRespuestaDTO) throws Exception{
         pacienteServicio.responderPQRS(registroRespuestaDTO);
         return ResponseEntity.ok().body( new MensajeDTO<>(false, "Ha creado la respuesta correctamente"));
