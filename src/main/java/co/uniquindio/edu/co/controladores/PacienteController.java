@@ -15,11 +15,16 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/paciente")
+@RequestMapping("api/pacientes")
 @RequiredArgsConstructor
 public class PacienteController {
 
     private final PacienteServicio pacienteServicio;
+    @PostMapping("/registrarse")
+    public ResponseEntity<MensajeDTO<String>> registrarse(@Valid @RequestBody RegistroPacienteDTO registroPacienteDTO) throws Exception{
+        pacienteServicio.registrarse(registroPacienteDTO);
+        return ResponseEntity.ok().body( new MensajeDTO<>(false, "Paciente creado correctamete") );
+    }
 
     @PutMapping("/editar-perfil")
     public ResponseEntity<MensajeDTO<String>> editarPerfil(@Valid @RequestBody DetallePacienteDTO detallePacienteDTO) throws Exception{
